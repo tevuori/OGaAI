@@ -193,6 +193,11 @@ namespace OGaAI
 			guna2TextBox1.Text = newstring;
 
 		}
+		public void addline2(String text)
+		{
+			packagelisttextbox.Text = text;
+
+		}
 		public void backcolor()
         {
 			Color def = new Color();
@@ -201,6 +206,103 @@ namespace OGaAI
 
 		}
 
-       
+        private void tabControl1_DrawItem(object sender,
+		System.Windows.Forms.DrawItemEventArgs e)
+		{
+
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+			backcolor();
+			if (isinprogress)
+			{
+				MessageBox.Show("Process is already in progress...");
+			}
+			else
+			{
+				isinprogress = true;				
+						try
+						{
+							String nameofapp = nameofappbox.Text;
+							Process proc = new Process();
+							proc.StartInfo.FileName = "adb.exe";
+							proc.StartInfo.UseShellExecute = false;
+							proc.StartInfo.Arguments = "uninstall " + nameofapp;
+							proc.StartInfo.RedirectStandardOutput = true;
+							proc.StartInfo.RedirectStandardError = true;
+							proc.Start();
+							String output = proc.StandardOutput.ReadToEnd();
+							String error = proc.StandardError.ReadToEnd();
+							packagelisttextbox.Text = error;
+							packagelisttextbox.ForeColor = Color.Green;
+							proc.WaitForExit();
+							isinprogress = false;
+							if (error.Contains("error: no devices/emulators found"))
+							{
+								MessageBox.Show("No headset is connected!");
+								packagelisttextbox.ForeColor = Color.Red;
+							}
+							if (error.Contains("Success"))
+							{
+								MessageBox.Show("Your Game/Application was sucessfully uninstalled!");
+							}
+						}
+						catch (Exception er)
+						{
+							guna2TextBox1.Text = er.Message;
+						}
+					}
+			}
+
+        private void nameofappbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+		public void changepackagelistcolortored()
+        {
+			packagelisttextbox.ForeColor = Color.Red;
+        }
+
+        private void seepackagesbutton_Click(object sender, EventArgs e)
+        {
+			Form1 f = new Form1();
+
+			Process proc = new Process();
+			proc.StartInfo.FileName = "adb.exe";
+			proc.StartInfo.UseShellExecute = false;
+			proc.StartInfo.Arguments = "shell pm list packages -3";
+			proc.StartInfo.RedirectStandardOutput = true;
+			proc.StartInfo.RedirectStandardError = true;
+			proc.Start();
+			proc.WaitForExit();
+
+			String error = proc.StandardOutput.ReadToEnd();
+
+			String error2 = error.Replace("package:", "");
+
+			packagelisttextbox.Text = error2;
+			proc.WaitForExit();
+		}
+
+        private void nameofappbox_Enter(object sender, EventArgs e)
+        {
+			if(nameofappbox.Text == "Package name of application")
+            {
+				nameofappbox.Text = "";
+			
+            }
+        }
+
+        private void nameofappbox_Leave(object sender, EventArgs e)
+        {
+			if(nameofappbox.Text == "")
+            {
+				nameofappbox.Text = "Package name of application";
+
+			}
+        }
     }
-}
+    }
+

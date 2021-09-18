@@ -102,5 +102,22 @@ namespace OGaAI
                 Console.WriteLine(e);
             }
         }
+        public static void show_packages()
+        {
+            Form1 f = new Form1();
+
+            Process proc = new Process();
+            proc.StartInfo.FileName = "adb.exe";
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.Arguments = "shell pm list packages -3";
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.Start();
+            proc.WaitForExit();
+
+            String error = proc.StandardOutput.ReadToEnd();
+            f.addline2(error);
+            proc.WaitForExit();
+        }
     }
 }

@@ -38,9 +38,21 @@ namespace OGaAI
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2TextBox1 = new System.Windows.Forms.RichTextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.nameofappbox = new System.Windows.Forms.TextBox();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.packagelisttextbox = new System.Windows.Forms.RichTextBox();
+            this.seepackagesbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.guna2TabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,7 +151,7 @@ namespace OGaAI
             // panel2
             // 
             this.panel2.Controls.Add(this.guna2TextBox1);
-            this.panel2.Location = new System.Drawing.Point(50, 184);
+            this.panel2.Location = new System.Drawing.Point(43, 62);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(380, 102);
             this.panel2.TabIndex = 1;
@@ -163,7 +175,7 @@ namespace OGaAI
             // 
             this.guna2Button1.AutoRoundedCorners = true;
             this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.guna2Button1.BorderRadius = 21;
+            this.guna2Button1.BorderRadius = 23;
             this.guna2Button1.CheckedState.Parent = this.guna2Button1;
             this.guna2Button1.CustomImages.Parent = this.guna2Button1;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -175,13 +187,144 @@ namespace OGaAI
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(120, 90);
+            this.guna2Button1.Location = new System.Drawing.Point(110, 8);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(240, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(240, 48);
             this.guna2Button1.TabIndex = 3;
             this.guna2Button1.Text = "Install game or application";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2TabControl1
+            // 
+            this.guna2TabControl1.Controls.Add(this.tabPage1);
+            this.guna2TabControl1.Controls.Add(this.tabPage2);
+            this.guna2TabControl1.ItemSize = new System.Drawing.Size(100, 40);
+            this.guna2TabControl1.Location = new System.Drawing.Point(3, 50);
+            this.guna2TabControl1.Name = "guna2TabControl1";
+            this.guna2TabControl1.SelectedIndex = 0;
+            this.guna2TabControl1.Size = new System.Drawing.Size(485, 248);
+            this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.guna2TabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2TabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2TabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.guna2TabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2TabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.guna2TabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.guna2TabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.guna2TabControl1.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.guna2TabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2TabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.guna2TabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.guna2TabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.guna2TabControl1.TabButtonSize = new System.Drawing.Size(100, 40);
+            this.guna2TabControl1.TabIndex = 4;
+            this.guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2TabControl1.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.tabPage1.Controls.Add(this.guna2Button1);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(477, 200);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Install";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.tabPage2.Controls.Add(this.nameofappbox);
+            this.tabPage2.Controls.Add(this.guna2Button4);
+            this.tabPage2.Controls.Add(this.panel3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(477, 200);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Uninstall";
+            // 
+            // nameofappbox
+            // 
+            this.nameofappbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.nameofappbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameofappbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(107)))), ((int)(((byte)(222)))));
+            this.nameofappbox.Location = new System.Drawing.Point(110, 10);
+            this.nameofappbox.Name = "nameofappbox";
+            this.nameofappbox.Size = new System.Drawing.Size(240, 20);
+            this.nameofappbox.TabIndex = 5;
+            this.nameofappbox.Tag = "";
+            this.nameofappbox.Text = "Package name of application";
+            this.nameofappbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nameofappbox.TextChanged += new System.EventHandler(this.nameofappbox_TextChanged);
+            this.nameofappbox.Enter += new System.EventHandler(this.nameofappbox_Enter);
+            this.nameofappbox.Leave += new System.EventHandler(this.nameofappbox_Leave);
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.AutoRoundedCorners = true;
+            this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.guna2Button4.BorderRadius = 23;
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.DisabledState.Parent = this.guna2Button4;
+            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Location = new System.Drawing.Point(110, 36);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(240, 48);
+            this.guna2Button4.TabIndex = 4;
+            this.guna2Button4.Text = "Uninstall game or application";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.seepackagesbutton);
+            this.panel3.Controls.Add(this.packagelisttextbox);
+            this.panel3.Location = new System.Drawing.Point(43, 90);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(380, 102);
+            this.panel3.TabIndex = 2;
+            // 
+            // packagelisttextbox
+            // 
+            this.packagelisttextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.packagelisttextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.packagelisttextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.packagelisttextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagelisttextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(225)))), ((int)(((byte)(194)))));
+            this.packagelisttextbox.Location = new System.Drawing.Point(0, 0);
+            this.packagelisttextbox.Name = "packagelisttextbox";
+            this.packagelisttextbox.ReadOnly = true;
+            this.packagelisttextbox.Size = new System.Drawing.Size(380, 102);
+            this.packagelisttextbox.TabIndex = 0;
+            this.packagelisttextbox.Text = "click on reload button --->";
+            // 
+            // seepackagesbutton
+            // 
+            this.seepackagesbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.seepackagesbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("seepackagesbutton.BackgroundImage")));
+            this.seepackagesbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.seepackagesbutton.FlatAppearance.BorderSize = 0;
+            this.seepackagesbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seepackagesbutton.Location = new System.Drawing.Point(316, 3);
+            this.seepackagesbutton.Name = "seepackagesbutton";
+            this.seepackagesbutton.Size = new System.Drawing.Size(44, 34);
+            this.seepackagesbutton.TabIndex = 1;
+            this.seepackagesbutton.UseVisualStyleBackColor = false;
+            this.seepackagesbutton.Click += new System.EventHandler(this.seepackagesbutton_Click);
             // 
             // Form1
             // 
@@ -189,8 +332,7 @@ namespace OGaAI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(491, 301);
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.guna2TabControl1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -203,6 +345,11 @@ namespace OGaAI
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.guna2TabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -217,6 +364,14 @@ namespace OGaAI
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RichTextBox packagelisttextbox;
+        private System.Windows.Forms.TextBox nameofappbox;
+        private System.Windows.Forms.Button seepackagesbutton;
     }
 }
 
