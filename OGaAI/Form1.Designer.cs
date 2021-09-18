@@ -41,11 +41,10 @@ namespace OGaAI
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.nameofappbox = new System.Windows.Forms.TextBox();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.packagelisttextbox = new System.Windows.Forms.RichTextBox();
             this.seepackagesbutton = new System.Windows.Forms.Button();
+            this.deletebox = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -239,7 +238,6 @@ namespace OGaAI
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.tabPage2.Controls.Add(this.nameofappbox);
             this.tabPage2.Controls.Add(this.guna2Button4);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
@@ -248,22 +246,6 @@ namespace OGaAI
             this.tabPage2.Size = new System.Drawing.Size(477, 200);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Uninstall";
-            // 
-            // nameofappbox
-            // 
-            this.nameofappbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.nameofappbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nameofappbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(107)))), ((int)(((byte)(222)))));
-            this.nameofappbox.Location = new System.Drawing.Point(110, 10);
-            this.nameofappbox.Name = "nameofappbox";
-            this.nameofappbox.Size = new System.Drawing.Size(240, 20);
-            this.nameofappbox.TabIndex = 5;
-            this.nameofappbox.Tag = "";
-            this.nameofappbox.Text = "Package name of application";
-            this.nameofappbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nameofappbox.TextChanged += new System.EventHandler(this.nameofappbox_TextChanged);
-            this.nameofappbox.Enter += new System.EventHandler(this.nameofappbox_Enter);
-            this.nameofappbox.Leave += new System.EventHandler(this.nameofappbox_Leave);
             // 
             // guna2Button4
             // 
@@ -292,25 +274,11 @@ namespace OGaAI
             // panel3
             // 
             this.panel3.Controls.Add(this.seepackagesbutton);
-            this.panel3.Controls.Add(this.packagelisttextbox);
+            this.panel3.Controls.Add(this.deletebox);
             this.panel3.Location = new System.Drawing.Point(43, 90);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(380, 102);
             this.panel3.TabIndex = 2;
-            // 
-            // packagelisttextbox
-            // 
-            this.packagelisttextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.packagelisttextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.packagelisttextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.packagelisttextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.packagelisttextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(225)))), ((int)(((byte)(194)))));
-            this.packagelisttextbox.Location = new System.Drawing.Point(0, 0);
-            this.packagelisttextbox.Name = "packagelisttextbox";
-            this.packagelisttextbox.ReadOnly = true;
-            this.packagelisttextbox.Size = new System.Drawing.Size(380, 102);
-            this.packagelisttextbox.TabIndex = 0;
-            this.packagelisttextbox.Text = "click on reload button --->";
             // 
             // seepackagesbutton
             // 
@@ -319,12 +287,22 @@ namespace OGaAI
             this.seepackagesbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.seepackagesbutton.FlatAppearance.BorderSize = 0;
             this.seepackagesbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.seepackagesbutton.Location = new System.Drawing.Point(316, 3);
+            this.seepackagesbutton.Location = new System.Drawing.Point(314, 3);
             this.seepackagesbutton.Name = "seepackagesbutton";
             this.seepackagesbutton.Size = new System.Drawing.Size(44, 34);
             this.seepackagesbutton.TabIndex = 1;
             this.seepackagesbutton.UseVisualStyleBackColor = false;
             this.seepackagesbutton.Click += new System.EventHandler(this.seepackagesbutton_Click);
+            // 
+            // deletebox
+            // 
+            this.deletebox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.deletebox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deletebox.FormattingEnabled = true;
+            this.deletebox.Location = new System.Drawing.Point(0, 0);
+            this.deletebox.Name = "deletebox";
+            this.deletebox.Size = new System.Drawing.Size(380, 102);
+            this.deletebox.TabIndex = 0;
             // 
             // Form1
             // 
@@ -348,7 +326,6 @@ namespace OGaAI
             this.guna2TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -369,9 +346,8 @@ namespace OGaAI
         private System.Windows.Forms.TabPage tabPage2;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RichTextBox packagelisttextbox;
-        private System.Windows.Forms.TextBox nameofappbox;
         private System.Windows.Forms.Button seepackagesbutton;
+        private System.Windows.Forms.CheckedListBox deletebox;
     }
 }
 

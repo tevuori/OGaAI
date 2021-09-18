@@ -116,7 +116,6 @@ namespace OGaAI
             proc.WaitForExit();
 
             String error = proc.StandardOutput.ReadToEnd();
-            f.addline2(error);
             proc.WaitForExit();
         }
     }

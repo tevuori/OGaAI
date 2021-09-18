@@ -45,6 +45,20 @@ namespace OGaAI
             {
 				Program.downandinstadb();
             }
+			Process proc = new Process();
+			proc.StartInfo.FileName = "adb.exe";
+			proc.StartInfo.UseShellExecute = false;
+			proc.StartInfo.Arguments = "get-state";
+			proc.StartInfo.RedirectStandardOutput = true;
+			proc.StartInfo.RedirectStandardError = true;
+			proc.Start();
+			String output = proc.StandardOutput.ReadToEnd();
+			String error = proc.StandardError.ReadToEnd();
+			if (error.Contains("error: no devices/emulators found") || output.Contains("error: no devices/emulators found"))
+			{
+				MessageBox.Show("No Headset detected!");
+				this.Close();
+			}
 		}
 
 		private void panel2_Paint(object sender, PaintEventArgs e)
@@ -193,11 +207,6 @@ namespace OGaAI
 			guna2TextBox1.Text = newstring;
 
 		}
-		public void addline2(String text)
-		{
-			packagelisttextbox.Text = text;
-
-		}
 		public void backcolor()
         {
 			Color def = new Color();
@@ -224,8 +233,27 @@ namespace OGaAI
 				isinprogress = true;				
 						try
 						{
-							String nameofapp = nameofappbox.Text;
-							Process proc = new Process();
+
+					int numberofchecked = deletebox.CheckedItems.Count;
+					if (numberofchecked > 1)
+					{
+						deletebox.ClearSelected();
+						MessageBox.Show("You can uninstall only one app at once!");
+						isinprogress = false;
+                    }
+                    else
+                    {
+
+						var selectedapp = new List<string>();
+
+						foreach (var lang in deletebox.CheckedItems)
+						{
+							selectedapp.Add(lang.ToString());
+						}
+
+						String nameofapp = selectedapp[0];
+
+						Process proc = new Process();
 							proc.StartInfo.FileName = "adb.exe";
 							proc.StartInfo.UseShellExecute = false;
 							proc.StartInfo.Arguments = "uninstall " + nameofapp;
@@ -234,21 +262,20 @@ namespace OGaAI
 							proc.Start();
 							String output = proc.StandardOutput.ReadToEnd();
 							String error = proc.StandardError.ReadToEnd();
-							packagelisttextbox.Text = error;
-							packagelisttextbox.ForeColor = Color.Green;
+							//packagelisttextbox.Text = error;
 							proc.WaitForExit();
 							isinprogress = false;
-							if (error.Contains("error: no devices/emulators found"))
+							if (output.Contains("error: no devices/emulators found"))
 							{
 								MessageBox.Show("No headset is connected!");
-								packagelisttextbox.ForeColor = Color.Red;
 							}
-							if (error.Contains("Success"))
+							if (output.Contains("Success"))
 							{
 								MessageBox.Show("Your Game/Application was sucessfully uninstalled!");
 							}
 						}
-						catch (Exception er)
+				}
+				catch (Exception er)
 						{
 							guna2TextBox1.Text = er.Message;
 						}
@@ -259,14 +286,14 @@ namespace OGaAI
         {
 
         }
-
-		public void changepackagelistcolortored()
-        {
-			packagelisttextbox.ForeColor = Color.Red;
-        }
-
         private void seepackagesbutton_Click(object sender, EventArgs e)
         {
+		
+			int numberofchecked = deletebox.CheckedItems.Count;
+			for(int i= numberofchecked; i>0; i--)
+            {
+				deletebox.Items.Remove(i);
+            }
 			Form1 f = new Form1();
 
 			Process proc = new Process();
@@ -276,33 +303,64 @@ namespace OGaAI
 			proc.StartInfo.RedirectStandardOutput = true;
 			proc.StartInfo.RedirectStandardError = true;
 			proc.Start();
-			proc.WaitForExit();
-
 			String error = proc.StandardOutput.ReadToEnd();
 
 			String error2 = error.Replace("package:", "");
-
-			packagelisttextbox.Text = error2;
+				String str = error2;
+			String[] splitted = str.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+			int howmuch = splitted.Length;
+			for (int i = howmuch; i > 0; i--)
+			{
+				deletebox.Items.Add(splitted[i-1]);
+				deletebox.Items.Remove("");
+			}
+			
 			proc.WaitForExit();
 		}
+		
 
-        private void nameofappbox_Enter(object sender, EventArgs e)
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-			if(nameofappbox.Text == "Package name of application")
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			/*String str = ttbox.Text;
+			String[] splitted = str.Split(' ');
+			int howmuch = splitted.Length;
+			for(int i = howmuch; i>0; i--)
             {
-				nameofappbox.Text = "";
+				checkedListBox1.Items.Add(splitted[i - 1]);
+			}*/
 			
+        }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+			int numberofchecked = deletebox.CheckedItems.Count;
+			if(numberofchecked > 1)
+            {
+				MessageBox.Show("You can uninstall only one app at once!");
+				deletebox.ClearSelected();
             }
         }
 
-        private void nameofappbox_Leave(object sender, EventArgs e)
-        {
-			if(nameofappbox.Text == "")
-            {
-				nameofappbox.Text = "Package name of application";
 
-			}
+        private void checkedListBox1_Click(object sender, EventArgs e)
+        {
+
         }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+			
+		}
     }
     }
 
