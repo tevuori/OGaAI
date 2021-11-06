@@ -287,7 +287,7 @@ namespace OGaAI
             this.seepackagesbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.seepackagesbutton.FlatAppearance.BorderSize = 0;
             this.seepackagesbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.seepackagesbutton.Location = new System.Drawing.Point(314, 3);
+            this.seepackagesbutton.Location = new System.Drawing.Point(316, 3);
             this.seepackagesbutton.Name = "seepackagesbutton";
             this.seepackagesbutton.Size = new System.Drawing.Size(44, 34);
             this.seepackagesbutton.TabIndex = 1;
@@ -302,6 +302,7 @@ namespace OGaAI
             this.deletebox.Location = new System.Drawing.Point(0, 0);
             this.deletebox.Name = "deletebox";
             this.deletebox.Size = new System.Drawing.Size(380, 102);
+            this.deletebox.Sorted = true;
             this.deletebox.TabIndex = 0;
             // 
             // Form1

@@ -38,7 +38,6 @@ namespace OGaAI
 			Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
 			//Program.Main();
 		}
-
 		private void Form1_Load(object sender, EventArgs e)
 		{
             if (!Program.isAdbHere())
@@ -59,13 +58,36 @@ namespace OGaAI
 				MessageBox.Show("No Headset detected!");
 				this.Close();
 			}
+			//connection_checkerAsync();
 		}
 
 		private void panel2_Paint(object sender, PaintEventArgs e)
 		{
 
 		}
-
+	
+		public Boolean isDeviceConnected()
+        {
+				Process proc = new Process();
+				proc.StartInfo.FileName = "adb.exe";
+				proc.StartInfo.UseShellExecute = false;
+				proc.StartInfo.Arguments = "get-state";
+				proc.StartInfo.RedirectStandardOutput = true;
+				proc.StartInfo.RedirectStandardError = true;
+				proc.Start();
+				String output = proc.StandardOutput.ReadToEnd();
+				String error = proc.StandardError.ReadToEnd();
+				if (error.Contains("error: no devices/emulators found") || output.Contains("error: no devices/emulators found"))
+				{
+					return false;
+					this.Close();
+                }
+                else
+                {
+					return true;
+                }
+			
+		}
 
 		private void panel1_Paint(object sender, PaintEventArgs e)
 		{
@@ -289,11 +311,7 @@ namespace OGaAI
         private void seepackagesbutton_Click(object sender, EventArgs e)
         {
 		
-			int numberofchecked = deletebox.CheckedItems.Count;
-			for(int i= numberofchecked; i>0; i--)
-            {
-				deletebox.Items.Remove(i);
-            }
+			deletebox.Items.Clear();
 			Form1 f = new Form1();
 
 			Process proc = new Process();
@@ -361,6 +379,11 @@ namespace OGaAI
         {
 			
 		}
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
     }
 
